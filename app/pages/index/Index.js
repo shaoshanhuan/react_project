@@ -4,7 +4,8 @@ import { DragDropContextProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 var R = require('ramda');
 
-import Haha from './Haha.js';
+import Haha from './Haha';
+import AAA from './AAA';
 
 export default class Index extends Component {
     constructor(){
@@ -60,6 +61,11 @@ export default class Index extends Component {
                         />)
                     }  
                 </DragDropContextProvider>
+
+
+                <button onClick={()=>{
+                    console.log(this.refs.aaa.state.a);
+                }}>按我</button>
             </HeaderFooterLayout>
         );
     }

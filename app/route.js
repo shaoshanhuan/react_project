@@ -9,6 +9,7 @@ import Orderquery from './pages/orderquery/Orderquery';
 import Specialorder from './pages/specialorder/Specialorder';
 import Allinsurance from './pages/allinsurance/Allinsurance';
 import Allssss from './pages/allssss/Allssss';
+import Carimage from './pages/carimage/Carimage';
 
 export default ({history}) => <Router history={history}>
     <div>
@@ -21,6 +22,7 @@ export default ({history}) => <Router history={history}>
             <Route path="/order/specialorder" exact component={Specialorder} />
             <Route path="/insurance/allinsurance" exact component={Allinsurance} />
             <Route path="/ssss/Allssss" exact component={Allssss} />
+            <Route path="/carimage/:id" exact component={Carimage} />
             <Redirect strict to="/index/index" exact />
         </Switch>
     </div>

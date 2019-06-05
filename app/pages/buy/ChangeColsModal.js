@@ -6,6 +6,7 @@ import {Button} from 'antd';
 
 @connect(
     ({colSort}) => ({
+        // 本地存储里面的列的定义
         nowCols: colSort.nowCols
     })
 )
@@ -19,6 +20,7 @@ export default class ChangeColsModal extends Component {
             arr2: []
         };
     }
+    // 生命周期，组件加载的时候要根据全局的nowcols组建自己的arr1、arr2
     componentWillMount(){
         // 向全局发出一个改变命令，让store中的临时数组和当前数组一直
         
@@ -53,8 +55,24 @@ export default class ChangeColsModal extends Component {
 
     // 生命周期，无论组件何种原因改变了状态（props、state）这里是state改变
     // 都会与全局的tempCols进行同步。
+    // tempCols这个量是临时周转用的
     componentDidUpdate(prevProps, prevState){
         this.props.dispatch({'type': 'colSort/changeTempCols', 'tempCols': this.state.arr1.map(item => item.k)});
+    }
+
+    // 删除
+    delitem(k){
+        // 数组1删除
+        this.setState({
+            arr1: this.state.arr1.filter(item => item.k != k),
+            arr2: [
+                ...this.state.arr2,
+                {
+                    k,
+                    'chinese': allCols[k].chinese
+                }
+            ]
+        });
     }
 
     
@@ -69,7 +87,7 @@ export default class ChangeColsModal extends Component {
                             sortId={index}
                             onSortItems={this.onSortItems1.bind(this)}
                             items={this.state.arr1}
-                            item={item}
+                            info={{item, 'delitem': this.delitem.bind(this)}}
                         />)
                     }
                 </ul>

@@ -8,9 +8,9 @@ import { sortable } from 'react-sortable';
     render() {
         return (
             <li {...this.props}>
-                {this.props.item.chinese}
+                {this.props.info.item.chinese}
                 <b onClick={()=>{
-                    this.props.delitem(this.props.item);
+                    this.props.info.delitem(this.props.info.item.k);
                 }}>
                     ×
                 </b>

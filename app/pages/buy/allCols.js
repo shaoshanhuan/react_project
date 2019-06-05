@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'dva/router';
 
 export default {
     
@@ -44,8 +45,8 @@ export default {
     },
     'img': {
         'chinese': '图片',
-        render(v){
-            return <img alt="" src={'http://192.168.2.233/' + v} />;
+        render(v, record){
+            return <Link to={'/carimage/' + record.id}><img alt="" src={'http://192.168.2.233/' + v} /></Link>;
         }
     }
 };

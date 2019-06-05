@@ -167,8 +167,8 @@ class Buy extends Component {
                         dataIndex: item,
                         key: item,
                         title: allCols[item].chinese,
-                        render(v){
-                            return allCols[item].hasOwnProperty('render') ? allCols[item].render(v) : v;
+                        render(v, record){
+                            return allCols[item].hasOwnProperty('render') ? allCols[item].render(v, record) : v;
                         }
                     }))}
                     pagination={{
