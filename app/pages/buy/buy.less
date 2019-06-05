@@ -1,0 +1,94 @@
+@blue-6: #1890ff;
+
+.ant-row {
+    height: 38px
+}
+.ant-tabs-nav .ant-tabs-tab{
+    padding:3px 6px;
+}
+.brand_a{
+    margin-right:10px;
+    padding:4px 10px;
+    line-height: 10px;
+    text-decoration: underline;
+    color:@blue-6;
+    cursor: pointer;
+
+    &.cur{
+        background:orange;
+        color:white;
+    }
+}
+.ant-tag{
+    margin-bottom:10px;
+}
+.tool_bar{
+    overflow: hidden;
+    .left_part{
+        float: left;
+    }
+    .right_part{
+        float: right;
+        .btn{
+            cursor: pointer;
+        }
+    }
+}
+.col_ul{
+    clear:both;
+    list-style: none;
+}
+.col_ul::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.col_ul li{
+    float: left;
+    border:1px solid #f38;
+    padding:4px 6px;
+    margin-right:6px;
+    margin-bottom:6px;
+    border-radius:4px;
+    position: relative;
+    cursor:move;
+
+    &:hover span{
+        display: block;
+    }
+
+    span{
+        display: none;
+        position: absolute;
+        background:rgba(26, 233, 216, 0.726);
+        top:0;
+        left:0;
+        color:white;
+        font-size:30px;
+        text-align: center;
+        width:100%;
+        height:100%;
+        line-height: 28px;
+        cursor: pointer;
+    }
+
+    &:hover b{
+        display: block;
+    }
+
+    b{
+        cursor: pointer;
+        display: none;
+        position: absolute;
+        top:-9px;
+        right:-9px;
+        width:18px;
+        height:18px;
+        background:orange;
+        color:white;
+        font-size:20px;
+        line-height: 12px;
+        text-align: center;
+        border-radius: 50%;
+    }
+}
